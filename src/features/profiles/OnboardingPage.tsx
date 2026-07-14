@@ -25,8 +25,13 @@ export function OnboardingPage() {
         Selamat datang di Keyboard Train
       </h1>
       <p className="mt-3 text-slate-600">
-        Buat profil untuk menyimpan progress latihan 10 jari di browser ini.
-        Progress anak dan dewasa bisa dipisah.
+        Aplikasi latihan <strong>touch typing 10 jari</strong> di keyboard
+        QWERTY. Lesson bertahap berbahasa Indonesia — dari home row sampai
+        kalimat lengkap — dengan panduan tombol dan jari di layar.
+      </p>
+      <p className="mt-2 text-sm text-slate-500">
+        Buat profil untuk menyimpan progress di browser ini. Progress anak dan
+        dewasa bisa dipisah (tanpa akun).
       </p>
 
       <form
