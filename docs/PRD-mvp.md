@@ -1,4 +1,4 @@
-# PRD: Keyboard Train MVP
+# PRD: KeyForge MVP
 
 **Status:** `ready-for-agent`  
 **Versi:** 1.0  
@@ -17,7 +17,7 @@ Anak dan dewasa belajar dengan kecepatan dan teks yang berbeda; di rumah sering 
 
 ## Solution
 
-**Keyboard Train** adalah aplikasi web (desktop/laptop) yang mengajarkan mengetik 10 jari melalui **kurikulum lesson berurutan** berbahasa Indonesia. Pengguna:
+**KeyForge** adalah aplikasi web (desktop/laptop) yang mengajarkan mengetik 10 jari melalui **kurikulum lesson berurutan** berbahasa Indonesia. Pengguna:
 
 1. Membuat **profil lokal** (Anak atau Dewasa).
 2. Menyelesaikan lesson dari home row hingga huruf, spasi, tanda baca dasar, lalu Shift/kapital.
@@ -237,9 +237,9 @@ Bangun di sekitar modul berikut (bukan path file kaku):
 
 ## Further Notes
 
-- Nama produk default: **Keyboard Train** (boleh diganti nanti tanpa mengubah perilaku).
+- Nama produk: **KeyForge**.
 - PRD ini merangkum keputusan grill-me; perubahan lingkup harus meng-update PRD dan plan.
-- Salinan tracker lokal: `.scratch/keyboard-train-mvp/spec.md` (symlink konten sama / mirror).
+- Salinan tracker lokal: `.scratch/keyboard-train-mvp/spec.md` (mirror).
 - Setelah implementasi, verifikasi mengikuti bagian Testing + acceptance di atas.
 - Urutan implementasi disarankan: scaffold → metrics/finger-map/storage → session engine → keyboard/hands UI → curriculum → profiles/lessons/results → audio/polish.
 

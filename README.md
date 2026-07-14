@@ -1,6 +1,6 @@
-# Keyboard Train
+# KeyForge
 
-Aplikasi web latihan **touch typing 10 jari** (layout QWERTY, teks & UI Bahasa Indonesia).
+Aplikasi web latihan **touch typing 10 jari** (layout QWERTY, teks & UI Bahasa Indonesia). Tema dark cyberpunk, sidebar navigasi, brand **KeyForge**.
 
 ## Fitur MVP
 
@@ -26,9 +26,9 @@ npm run dev
 
 Buka URL Vite (biasanya `http://localhost:5173`).
 
-1. Buat profil (nama + Anak/Dewasa)  
-2. Mulai lesson dari daftar  
-3. Ketik teks target; Backspace jika salah  
+1. Buat profil (nama + Anak/Dewasa)
+2. Mulai lesson dari daftar
+3. Ketik teks target; Backspace jika salah
 
 ## Skrip
 
@@ -39,6 +39,11 @@ npm run preview    # preview build
 npm test           # unit tests (Vitest)
 npm run test:watch
 ```
+
+## Deploy
+
+- **GitHub:** https://github.com/priatna13/keyforge
+- **Vercel:** SPA Vite, build `npm run build`, output `dist`, rewrite ke `index.html` (`vercel.json`)
 
 ## Stack
 
@@ -54,4 +59,8 @@ Vite · React · TypeScript · Tailwind CSS · React Router · Vitest
 
 ## Catatan
 
-Progress disimpan hanya di browser ini (localStorage). Membersihkan data situs akan menghapus profil.
+Progress disimpan di browser (`localStorage` key `keyforge:v1`). Membersihkan data situs akan menghapus profil.
+
+## Branding
+
+Logo utama: `public/logo.png`.

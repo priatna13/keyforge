@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Navigate } from 'react-router-dom'
+import { BrandLogo } from '../../components/BrandLogo'
 import type { ProfileMode } from '../../lib/storage'
 import { useProfiles } from './ProfileContext'
 
@@ -20,33 +21,44 @@ export function OnboardingPage() {
   }
 
   return (
-    <section className="mx-auto max-w-lg">
-      <h1 className="text-3xl font-bold tracking-tight text-slate-900">
-        Selamat datang di Keyboard Train
-      </h1>
-      <p className="mt-3 text-slate-600">
-        Aplikasi latihan <strong>touch typing 10 jari</strong> di keyboard
-        QWERTY. Lesson bertahap berbahasa Indonesia — dari home row sampai
-        kalimat lengkap — dengan panduan tombol dan jari di layar.
+    <section className="kf-fade-in mx-auto max-w-lg">
+      <div className="mb-8 flex justify-center">
+        <div className="kf-glow-pulse rounded-3xl p-2">
+          <BrandLogo
+            showWordmark={false}
+            className="h-[min(70vw,28rem)] w-auto max-w-full sm:h-[32rem]"
+          />
+        </div>
+      </div>
+
+      <p className="kf-mono text-center text-xs uppercase tracking-[0.25em] text-cyan-400/80">
+        System online · touch typing protocol
       </p>
-      <p className="mt-2 text-sm text-slate-500">
-        Buat profil untuk menyimpan progress di browser ini. Progress anak dan
-        dewasa bisa dipisah (tanpa akun).
+      <h1 className="kf-title mt-3 text-center text-3xl text-white sm:text-4xl">
+        Selamat datang di{' '}
+        <span className="bg-gradient-to-r from-cyan-300 to-orange-400 bg-clip-text text-transparent">
+          KeyForge
+        </span>
+      </h1>
+      <p className="mt-4 text-center text-slate-400">
+        Latihan <strong className="text-cyan-300">10 jari</strong> di QWERTY —
+        lesson bertahap berbahasa Indonesia, panduan tombol & jari di layar,
+        style cyber HUD.
       </p>
 
-      <form
-        onSubmit={handleSubmit}
-        className="mt-8 space-y-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-      >
+      <form onSubmit={handleSubmit} className="kf-card mt-8 space-y-5 p-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-slate-700">
+          <label
+            htmlFor="name"
+            className="mb-1.5 block text-sm font-medium text-slate-300"
+          >
             Nama profil
           </label>
           <input
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 outline-none ring-sky-500 focus:ring-2"
+            className="kf-input"
             placeholder="Contoh: Budi"
             autoFocus
             required
@@ -54,20 +66,30 @@ export function OnboardingPage() {
         </div>
 
         <fieldset>
-          <legend className="text-sm font-medium text-slate-700">Mode latihan</legend>
+          <legend className="text-sm font-medium text-slate-300">
+            Mode latihan
+          </legend>
           <div className="mt-2 grid grid-cols-2 gap-3">
             {(
               [
-                { id: 'anak', label: 'Anak', hint: 'Teks pendek, WPM lebih rendah' },
-                { id: 'dewasa', label: 'Dewasa', hint: 'Teks lebih panjang' },
+                {
+                  id: 'anak' as const,
+                  label: 'Anak',
+                  hint: 'Teks pendek · WPM lebih rendah',
+                },
+                {
+                  id: 'dewasa' as const,
+                  label: 'Dewasa',
+                  hint: 'Teks lebih panjang · target lebih tinggi',
+                },
               ] as const
             ).map((opt) => (
               <label
                 key={opt.id}
-                className={`cursor-pointer rounded-xl border p-3 text-left transition ${
+                className={`cursor-pointer rounded-xl border p-3 transition duration-200 ${
                   mode === opt.id
-                    ? 'border-sky-500 bg-sky-50 ring-2 ring-sky-200'
-                    : 'border-slate-200 hover:border-slate-300'
+                    ? 'border-cyan-400/60 bg-cyan-400/10 shadow-[0_0_20px_rgba(34,211,238,0.2)]'
+                    : 'border-white/10 bg-black/20 hover:border-cyan-400/30'
                 }`}
               >
                 <input
@@ -77,18 +99,19 @@ export function OnboardingPage() {
                   checked={mode === opt.id}
                   onChange={() => setMode(opt.id)}
                 />
-                <span className="block font-semibold text-slate-900">{opt.label}</span>
-                <span className="mt-1 block text-xs text-slate-500">{opt.hint}</span>
+                <span className="kf-title block text-sm text-white">
+                  {opt.label}
+                </span>
+                <span className="mt-1 block text-xs text-slate-400">
+                  {opt.hint}
+                </span>
               </label>
             ))}
           </div>
         </fieldset>
 
-        <button
-          type="submit"
-          className="w-full rounded-lg bg-sky-600 px-4 py-2.5 font-semibold text-white hover:bg-sky-700"
-        >
-          Mulai latihan
+        <button type="submit" className="kf-btn kf-btn-primary w-full">
+          Inisialisasi profil
         </button>
       </form>
     </section>

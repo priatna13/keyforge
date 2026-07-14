@@ -23,11 +23,16 @@ export function ProfilesPage() {
   }
 
   return (
-    <section className="mx-auto max-w-2xl space-y-8">
+    <section className="kf-fade-in mx-auto max-w-2xl space-y-8">
       <div className="flex items-center justify-between gap-4">
-        <h1 className="text-2xl font-bold text-slate-900">Profil</h1>
-        <Link to="/lessons" className="text-sm font-medium text-sky-700 hover:underline">
-          ← Kembali ke lesson
+        <div>
+          <p className="kf-mono text-xs uppercase tracking-[0.2em] text-cyan-400/70">
+            Identity bank
+          </p>
+          <h1 className="kf-title mt-1 text-3xl text-white">Profil</h1>
+        </div>
+        <Link to="/lessons" className="kf-btn kf-btn-ghost text-sm">
+          ← Lesson
         </Link>
       </div>
 
@@ -37,20 +42,20 @@ export function ProfilesPage() {
           return (
             <li
               key={p.id}
-              className={`flex flex-wrap items-center justify-between gap-3 rounded-xl border bg-white p-4 shadow-sm ${
-                active ? 'border-sky-400 ring-2 ring-sky-100' : 'border-slate-200'
+              className={`kf-card flex flex-wrap items-center justify-between gap-3 p-4 ${
+                active ? 'border-cyan-400/50 shadow-[0_0_24px_rgba(34,211,238,0.15)]' : ''
               }`}
             >
               <div>
-                <p className="font-semibold text-slate-900">
+                <p className="font-semibold text-white">
                   {p.name}{' '}
                   {active && (
-                    <span className="text-xs font-medium text-sky-700">(aktif)</span>
+                    <span className="kf-badge kf-badge-open ml-1">Aktif</span>
                   )}
                 </p>
-                <p className="text-sm text-slate-500">
-                  Mode {p.mode === 'anak' ? 'Anak' : 'Dewasa'} · Suara{' '}
-                  {p.settings.sound ? 'nyala' : 'mati'}
+                <p className="kf-mono mt-1 text-xs text-slate-500">
+                  {p.mode === 'anak' ? 'ANAK' : 'DEWASA'} · audio{' '}
+                  {p.settings.sound ? 'ON' : 'OFF'}
                 </p>
               </div>
               <div className="flex gap-2">
@@ -58,7 +63,7 @@ export function ProfilesPage() {
                   <button
                     type="button"
                     onClick={() => setActiveProfile(p.id)}
-                    className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-50"
+                    className="kf-btn kf-btn-ghost"
                   >
                     Aktifkan
                   </button>
@@ -68,7 +73,7 @@ export function ProfilesPage() {
                   onClick={() => {
                     if (confirm(`Hapus profil "${p.name}"?`)) deleteProfile(p.id)
                   }}
-                  className="rounded-lg border border-red-200 px-3 py-1.5 text-sm text-red-700 hover:bg-red-50"
+                  className="kf-btn kf-btn-danger"
                 >
                   Hapus
                 </button>
@@ -78,30 +83,24 @@ export function ProfilesPage() {
         })}
       </ul>
 
-      <form
-        onSubmit={handleCreate}
-        className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
-      >
-        <h2 className="font-semibold text-slate-900">Tambah profil</h2>
+      <form onSubmit={handleCreate} className="kf-card space-y-4 p-5">
+        <h2 className="kf-title text-sm text-cyan-300">Tambah profil</h2>
         <input
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Nama"
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-sky-500"
+          className="kf-input"
           required
         />
         <select
           value={mode}
           onChange={(e) => setMode(e.target.value as ProfileMode)}
-          className="w-full rounded-lg border border-slate-300 px-3 py-2"
+          className="kf-input"
         >
           <option value="anak">Anak</option>
           <option value="dewasa">Dewasa</option>
         </select>
-        <button
-          type="submit"
-          className="rounded-lg bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-700"
-        >
+        <button type="submit" className="kf-btn kf-btn-primary">
           Buat profil
         </button>
       </form>

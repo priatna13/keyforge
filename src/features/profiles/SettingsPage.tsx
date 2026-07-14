@@ -6,9 +6,9 @@ export function SettingsPage() {
 
   if (!activeProfile) {
     return (
-      <p>
+      <p className="text-slate-400">
         Belum ada profil aktif.{' '}
-        <Link to="/" className="text-sky-700 underline">
+        <Link to="/" className="text-cyan-400 underline">
           Buat profil
         </Link>
       </p>
@@ -16,32 +16,42 @@ export function SettingsPage() {
   }
 
   return (
-    <section className="mx-auto max-w-lg space-y-6">
+    <section className="kf-fade-in mx-auto max-w-lg space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-slate-900">Pengaturan</h1>
-        <Link to="/lessons" className="text-sm font-medium text-sky-700 hover:underline">
+        <div>
+          <p className="kf-mono text-xs uppercase tracking-[0.2em] text-cyan-400/70">
+            System config
+          </p>
+          <h1 className="kf-title mt-1 text-3xl text-white">Pengaturan</h1>
+        </div>
+        <Link to="/lessons" className="kf-btn kf-btn-ghost text-sm">
           ← Lesson
         </Link>
       </div>
 
-      <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-        <p className="text-sm text-slate-500">Profil aktif</p>
-        <p className="text-lg font-semibold text-slate-900">
-          {activeProfile.name} ({activeProfile.mode === 'anak' ? 'Anak' : 'Dewasa'})
+      <div className="kf-card p-6">
+        <p className="kf-mono text-xs uppercase tracking-wider text-slate-500">
+          Profil aktif
+        </p>
+        <p className="mt-1 text-xl font-semibold text-white">
+          {activeProfile.name}{' '}
+          <span className="text-sm font-normal text-cyan-400">
+            ({activeProfile.mode === 'anak' ? 'Anak' : 'Dewasa'})
+          </span>
         </p>
 
-        <label className="mt-6 flex cursor-pointer items-center justify-between gap-4">
+        <label className="mt-8 flex cursor-pointer items-center justify-between gap-4 rounded-xl border border-cyan-400/15 bg-black/25 p-4 transition hover:border-cyan-400/35">
           <span>
-            <span className="block font-medium text-slate-900">Suara feedback</span>
-            <span className="text-sm text-slate-500">
-              Bunyi saat ketik benar/salah
+            <span className="block font-medium text-white">Suara feedback</span>
+            <span className="text-sm text-slate-400">
+              Tone neon saat ketik benar / error
             </span>
           </span>
           <input
             type="checkbox"
             checked={activeProfile.settings.sound}
             onChange={(e) => setSoundEnabled(e.target.checked)}
-            className="h-5 w-5 accent-sky-600"
+            className="h-6 w-6 accent-cyan-400"
           />
         </label>
       </div>

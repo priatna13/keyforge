@@ -1,6 +1,6 @@
 import type { LessonResult } from './progress'
 
-export const STORAGE_KEY = 'keyboard-train:v1'
+export const STORAGE_KEY = 'keyforge:v1'
 
 export type ProfileMode = 'anak' | 'dewasa'
 

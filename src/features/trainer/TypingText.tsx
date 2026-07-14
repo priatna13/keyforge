@@ -7,16 +7,17 @@ type Props = {
 export function TypingText({ targetText, cursorIndex, isErrorLocked }: Props) {
   return (
     <p
-      className="rounded-xl border border-slate-200 bg-white p-5 font-mono text-xl leading-relaxed tracking-wide text-slate-800 shadow-sm sm:text-2xl"
+      className="kf-typing-panel text-xl leading-relaxed tracking-wide sm:text-2xl"
       aria-live="polite"
     >
       {targetText.split('').map((ch, i) => {
-        let className = 'text-slate-300'
-        if (i < cursorIndex) className = 'text-emerald-600'
-        else if (i === cursorIndex) {
+        let className = 'text-slate-600'
+        if (i < cursorIndex) {
+          className = 'text-emerald-400'
+        } else if (i === cursorIndex) {
           className = isErrorLocked
-            ? 'bg-red-200 text-red-800 underline decoration-red-500'
-            : 'bg-sky-200 text-slate-900 underline decoration-sky-600'
+            ? 'rounded-sm bg-rose-500/40 text-rose-100 underline decoration-rose-400 shadow-[0_0_12px_rgba(244,63,94,0.5)]'
+            : 'rounded-sm bg-cyan-400/30 text-white underline decoration-cyan-300 shadow-[0_0_14px_rgba(34,211,238,0.45)]'
         }
         const display = ch === ' ' ? '\u00a0' : ch
         return (

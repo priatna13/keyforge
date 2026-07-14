@@ -67,59 +67,71 @@ const ROWS: { key: string; label: string; wide?: string }[][] = [
   [{ key: ' ', label: 'Spasi', wide: 'w-64' }],
 ]
 
-function keyStyle(key: string, activeKeys: string[], error?: boolean): CSSProperties {
+function keyStyle(
+  key: string,
+  activeKeys: string[],
+  error?: boolean,
+): CSSProperties {
   const active = activeKeys.includes(key)
   if (!active) {
     return {
-      backgroundColor: '#f8fafc',
-      borderColor: '#e2e8f0',
-      color: '#334155',
+      background:
+        'linear-gradient(180deg, rgba(17,31,54,0.95), rgba(8,15,28,0.95))',
+      borderColor: 'rgba(34,211,238,0.12)',
+      color: '#94a3b8',
+      boxShadow: 'inset 0 -2px 0 rgba(0,0,0,0.35)',
     }
   }
   if (error) {
     return {
-      backgroundColor: '#fecaca',
-      borderColor: '#ef4444',
-      color: '#7f1d1d',
-      boxShadow: '0 0 0 2px #fca5a5',
+      background: 'linear-gradient(180deg, #be123c, #9f1239)',
+      borderColor: '#fb7185',
+      color: '#fff1f2',
+      boxShadow: '0 0 16px rgba(244,63,94,0.55)',
     }
   }
   return {
-    backgroundColor: '#e0f2fe',
-    borderColor: '#0ea5e9',
-    color: '#0c4a6e',
-    boxShadow: '0 0 0 2px #7dd3fc',
+    background: 'linear-gradient(180deg, #22d3ee, #0891b2)',
+    borderColor: '#67e8f9',
+    color: '#031018',
+    boxShadow: '0 0 18px rgba(34,211,238,0.55)',
+    fontWeight: 700,
   }
 }
 
 export function VirtualKeyboard({ activeKeys, activeFingers, error }: Props) {
   return (
     <div className="select-none">
-      <div className="mb-2 flex flex-wrap justify-center gap-1">
+      <div className="mb-3 flex flex-wrap justify-center gap-1.5">
         {activeFingers.map((f) => (
           <span
             key={f}
-            className="rounded-full px-2 py-0.5 text-[10px] font-medium text-white"
-            style={{ backgroundColor: FINGER_COLORS[f] }}
+            className="kf-mono rounded-full px-2.5 py-0.5 text-[10px] font-semibold text-[#031018]"
+            style={{
+              backgroundColor: FINGER_COLORS[f],
+              boxShadow: `0 0 12px ${FINGER_COLORS[f]}88`,
+            }}
           >
             {f}
           </span>
         ))}
       </div>
-      <div className="flex flex-col items-center gap-1">
-        {ROWS.map((row, i) => (
-          <div key={i} className="flex flex-wrap justify-center gap-1">
-            {row.map((k) => (
-              <div
-                key={k.key + k.label}
-                className={`flex h-9 min-w-8 items-center justify-center rounded-md border text-xs font-semibold ${k.wide ?? 'w-8'}`}
-                style={keyStyle(k.key, activeKeys, error)}
-              >
-                {k.label}
-              </div>
-            ))}
-          </div>
-        ))}
+      <div className="kf-card p-3 sm:p-4">
+        <div className="flex flex-col items-center gap-1.5">
+          {ROWS.map((row, i) => (
+            <div key={i} className="flex flex-wrap justify-center gap-1">
+              {row.map((k) => (
+                <div
+                  key={k.key + k.label}
+                  className={`flex h-10 min-w-9 items-center justify-center rounded-md border text-xs font-semibold transition-shadow duration-150 ${k.wide ?? 'w-9'}`}
+                  style={keyStyle(k.key, activeKeys, error)}
+                >
+                  {k.label}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

@@ -34,7 +34,17 @@ function Finger({
 
 function Palm({ x }: { x: number }) {
   return (
-    <rect x={x} y={55} width={72} height={36} rx={12} fill="#cbd5e1" opacity={0.7} />
+    <rect
+      x={x}
+      y={55}
+      width={72}
+      height={36}
+      rx={12}
+      fill="#1e293b"
+      opacity={0.9}
+      stroke="rgba(34,211,238,0.25)"
+      strokeWidth={1}
+    />
   )
 }
 
@@ -61,7 +71,7 @@ export function HandGuide({ activeFingers }: Props) {
           fill={FINGER_COLORS.thumbs}
           opacity={thumbsActive ? 1 : 0.35}
         />
-        <text x={50} y={98} textAnchor="middle" className="fill-slate-400" fontSize="8">
+        <text x={50} y={98} textAnchor="middle" fill="#64748b" fontSize="8">
           Kiri
         </text>
       </svg>
@@ -84,7 +94,7 @@ export function HandGuide({ activeFingers }: Props) {
           fill={FINGER_COLORS.thumbs}
           opacity={thumbsActive ? 1 : 0.35}
         />
-        <text x={50} y={98} textAnchor="middle" className="fill-slate-400" fontSize="8">
+        <text x={50} y={98} textAnchor="middle" fill="#64748b" fontSize="8">
           Kanan
         </text>
       </svg>

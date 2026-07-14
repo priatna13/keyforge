@@ -205,9 +205,9 @@ export function TrainerPage() {
   if (!activeProfile) return <Navigate to="/" replace />
   if (!lesson) {
     return (
-      <p>
+      <p className="text-slate-400">
         Lesson tidak ditemukan.{' '}
-        <Link to="/lessons" className="text-sky-700 underline">
+        <Link to="/lessons" className="text-cyan-400 underline">
           Kembali
         </Link>
       </p>
@@ -224,36 +224,42 @@ export function TrainerPage() {
   }
 
   return (
-    <section className="space-y-6">
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <div>
-          <p className="text-xs font-medium uppercase text-slate-400">
-            Lesson {lesson.order}
-          </p>
-          <h1 className="text-2xl font-bold text-slate-900">{lesson.title}</h1>
-          <p className="mt-1 text-sm text-slate-600">{lesson.description}</p>
-        </div>
-        <Link
-          to="/lessons"
-          className="text-sm font-medium text-sky-700 hover:underline"
-        >
-          ← Daftar lesson
-        </Link>
+    <section className="kf-fade-in space-y-6">
+      <div>
+        <p className="kf-mono text-xs uppercase tracking-[0.2em] text-cyan-400/70">
+          Mission #{String(lesson.order).padStart(2, '0')}
+        </p>
+        <h1 className="kf-title mt-1 text-2xl text-white sm:text-3xl">
+          {lesson.title}
+        </h1>
+        <p className="mt-1 text-sm text-slate-400">{lesson.description}</p>
       </div>
 
-      <div className="grid grid-cols-3 gap-3 text-center">
-        <Stat label="WPM" value={String(wpm)} />
-        <Stat label="Akurasi" value={`${accuracy}%`} />
-        <Stat
-          label="Waktu"
-          value={`${Math.floor(effectiveElapsed / 1000)} dtk`}
-        />
+      <div className="grid grid-cols-3 gap-3">
+        <div className="kf-stat">
+          <p className="kf-stat-label">WPM</p>
+          <p className="kf-stat-value">{wpm}</p>
+        </div>
+        <div className="kf-stat">
+          <p className="kf-stat-label">Akurasi</p>
+          <p className="kf-stat-value">{accuracy}%</p>
+        </div>
+        <div className="kf-stat">
+          <p className="kf-stat-label">Waktu</p>
+          <p className="kf-stat-value">
+            {Math.floor(effectiveElapsed / 1000)}
+            <span className="text-base text-slate-500">s</span>
+          </p>
+        </div>
       </div>
 
       {snap.isErrorLocked && (
-        <p className="rounded-lg bg-red-50 px-3 py-2 text-center text-sm text-red-700">
-          Salah — tekan <kbd className="rounded bg-red-100 px-1">Backspace</kbd>{' '}
-          lalu ketik tombol yang benar.
+        <p className="rounded-xl border border-rose-500/40 bg-rose-500/10 px-3 py-2 text-center text-sm text-rose-200">
+          ERROR LOCK — tekan{' '}
+          <kbd className="kf-mono rounded border border-rose-400/40 bg-rose-500/20 px-1.5 py-0.5 text-rose-100">
+            Backspace
+          </kbd>{' '}
+          lalu ketik karakter yang benar.
         </p>
       )}
 
@@ -263,9 +269,9 @@ export function TrainerPage() {
         isErrorLocked={snap.isErrorLocked}
       />
 
-      <p className="text-center text-xs text-slate-500">
-        Target: {lesson.minWpm} WPM · ≥{lesson.minAccuracy}% · Mulai mengetik
-        kapan saja
+      <p className="kf-mono text-center text-xs text-slate-500">
+        TARGET {lesson.minWpm} WPM · ≥{lesson.minAccuracy}% · begin keystroke
+        anytime
       </p>
 
       <HandGuide activeFingers={highlight.fingers} />
@@ -275,16 +281,5 @@ export function TrainerPage() {
         error={snap.isErrorLocked}
       />
     </section>
-  )
-}
-
-function Stat({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-xl border border-slate-200 bg-white px-3 py-3 shadow-sm">
-      <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
-        {label}
-      </p>
-      <p className="mt-1 text-2xl font-bold tabular-nums text-slate-900">{value}</p>
-    </div>
   )
 }

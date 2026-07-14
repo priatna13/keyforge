@@ -307,7 +307,7 @@ const SEEDS: LessonSeed[] = [
     keysIntroduced: ['Shift'],
     textAnak: 'Nama saya Ani. Saya tinggal di Jakarta.',
     textDewasa:
-      'Nama saya Ani. Saya tinggal di Jakarta. Hari ini saya latihan Keyboard Train.',
+      'Nama saya Ani. Saya tinggal di Jakarta. Hari ini saya latihan KeyForge.',
     minWpmAnak: 13,
     minWpmDewasa: 20,
   },
@@ -332,7 +332,7 @@ const SEEDS: LessonSeed[] = [
     textAnak:
       'Selamat! Kamu sudah latihan 10 jari. Teruslah berlatih setiap hari agar semakin cepat dan akurat.',
     textDewasa:
-      'Selamat! Kamu sudah menyelesaikan jalur lesson Keyboard Train. Teruslah berlatih setiap hari agar semakin cepat, akurat, dan nyaman mengetik tanpa melihat keyboard.',
+      'Selamat! Kamu sudah menyelesaikan jalur lesson KeyForge. Teruslah berlatih setiap hari agar semakin cepat, akurat, dan nyaman mengetik tanpa melihat keyboard.',
     minWpmAnak: 15,
     minWpmDewasa: 25,
   },
