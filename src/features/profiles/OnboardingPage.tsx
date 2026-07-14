@@ -32,7 +32,7 @@ export function OnboardingPage() {
       </div>
 
       <p className="kf-mono text-center text-xs uppercase tracking-[0.25em] text-cyan-400/80">
-        System online · touch typing protocol
+        System online
       </p>
       <h1 className="kf-title mt-3 text-center text-3xl text-white sm:text-4xl">
         Selamat datang di{' '}
@@ -40,10 +40,11 @@ export function OnboardingPage() {
           KeyForge
         </span>
       </h1>
-      <p className="mt-4 text-center text-slate-400">
-        Latihan <strong className="text-cyan-300">10 jari</strong> di QWERTY —
-        lesson bertahap berbahasa Indonesia, panduan tombol & jari di layar,
-        style cyber HUD.
+      <p className="mt-4 text-center text-xl font-semibold tracking-tight text-cyan-200 sm:text-2xl">
+        Asah 10 jari. Kuasai keyboard.
+      </p>
+      <p className="kf-mono mt-2 text-center text-sm text-slate-400">
+        Forge your fingers. Type without looking.
       </p>
 
       <form onSubmit={handleSubmit} className="kf-card mt-8 space-y-5 p-6">

@@ -54,8 +54,15 @@ export function AppLayout() {
         <span className="kf-title bg-gradient-to-r from-cyan-300 to-orange-400 bg-clip-text text-lg text-transparent">
           KeyForge
         </span>
-        <span className="kf-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">
-          10-finger protocol
+        <span className="px-2 text-center text-[11px] leading-snug text-slate-400">
+          Asah 10 jari.
+          <br />
+          Kuasai keyboard.
+        </span>
+        <span className="kf-mono px-2 text-center text-[10px] leading-snug text-slate-500">
+          Forge your fingers.
+          <br />
+          Type without looking.
         </span>
       </Link>
 
@@ -184,7 +191,7 @@ export function AppLayout() {
           <footer className="border-t border-cyan-400/10 py-3 text-center text-xs text-slate-500">
             <span className="kf-mono text-cyan-700/80">KEYFORGE</span>
             <span className="mx-2 text-slate-600">//</span>
-            forge your ten-finger skill
+            Forge your fingers. Type without looking.
           </footer>
         )}
       </div>

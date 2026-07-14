@@ -43,7 +43,8 @@ npm run test:watch
 ## Deploy
 
 - **GitHub:** https://github.com/priatna13/keyforge
-- **Vercel:** SPA Vite, build `npm run build`, output `dist`, rewrite ke `index.html` (`vercel.json`)
+- **Production:** https://keyforge-typing.vercel.app
+- **Vercel:** project `keyforge-typing` (jangan pakai `keyforge-phi` — bentrok domain produk lain)
 
 ## Stack
 
