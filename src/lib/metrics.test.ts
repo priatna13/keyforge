@@ -129,7 +129,8 @@ describe('calculateStars', () => {
     ).toBe(3)
   })
 
-  it('does not award speed star without 95% accuracy', () => {
+  it('awards speed star independently of the 95% accuracy bonus', () => {
+    // pass (1) + speed (1) without accuracy bonus → 2
     expect(
       calculateStars({
         accuracy: 92,
@@ -137,6 +138,6 @@ describe('calculateStars', () => {
         minWpm: 10,
         minAccuracy: 90,
       }),
-    ).toBe(1)
+    ).toBe(2)
   })
 })

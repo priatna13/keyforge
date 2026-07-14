@@ -35,6 +35,6 @@ export function calculateStars(input: {
 
   let stars = 1
   if (input.accuracy >= 95) stars += 1
-  if (input.accuracy >= 95 && input.wpm >= input.minWpm * 1.25) stars += 1
+  if (input.wpm >= input.minWpm * 1.25) stars += 1
   return Math.min(stars, 3)
 }
